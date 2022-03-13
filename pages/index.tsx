@@ -50,7 +50,7 @@ function Home() {
               <input
                 type="text"
                 name="setId"
-                placeholder="setId"
+                placeholder="set text"
                 onChange={(e) => {
                   e.preventDefault();
                   setText(e.target.value);
@@ -70,7 +70,7 @@ function Home() {
               <input
                 type="number"
                 name="setId"
-                placeholder="setId"
+                placeholder="set id"
                 min={1}
                 onChange={(e) => {
                   e.preventDefault();
@@ -80,6 +80,7 @@ function Home() {
               />
               <button type="submit">getText</button>
             </form>
+            <p>{text}</p>
           </section>
         )}
       </main>
