@@ -23,8 +23,8 @@ npx hardhat compile
 npx hardhat node
 ```
 
-# common error
-1. [Nonce too high](https://https://medium.com/@thelasthash/solved-nonce-too-high-error-with-metamask-and-hardhat-adc66f092cd): Go to **Settings**, then **Advanced** and hit **Reset Account**
+## common error
+1. [Nonce too high](https://https://medium.com/@thelasthash/solved-nonce-too-high-error-with-metamask-and-hardhat-adc66f092cd): in metamask Go to **Settings**, then **Advanced** and hit **Reset Account**
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmirshko%2Fnext-web3-boilerplate)
 
