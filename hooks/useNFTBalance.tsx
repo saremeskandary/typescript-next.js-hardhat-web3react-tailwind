@@ -1,9 +1,9 @@
 import useSWR from "swr";
-import type { ERC20 } from "../contracts/types";
+import { ERC721 } from "../typechain/ERC721";
 import useKeepSWRDataLiveAsBlocksArrive from "./useKeepSWRDataLiveAsBlocksArrive";
-import {useTokenContract} from "./useContract";
+import {useNFTContract} from "./useContract";
 
-function getTokenBalance(contract: ERC20) {
+function getNFTBalance(contract: ERC721) {
   return async (_: string, address: string) => {
     const balance = await contract.balanceOf(address);
 
@@ -16,7 +16,7 @@ export default function useTokenBalance(
   tokenAddress: string,
   suspense = false
 ) {
-  const contract = useTokenContract(tokenAddress);
+  const contract = useNFTContract(tokenAddress);
 
   const shouldFetch =
     typeof address === "string" &&
@@ -25,7 +25,7 @@ export default function useTokenBalance(
 
   const result = useSWR(
     shouldFetch ? ["TokenBalance", address, tokenAddress] : null,
-    getTokenBalance(contract),
+    getNFTBalance(contract),
     {
       suspense,
     }
