@@ -1,6 +1,9 @@
 import { Contract } from "@ethersproject/contracts";
 import { useWeb3React } from "@web3-react/core";
 import { useMemo } from "react";
+import { ERC20 } from "../contracts/types/ERC20";
+import textToken from "../artifacts/contracts/TextToken.sol/TextToken.json";
+import { TextToken } from "../typechain/TextToken";
 
 export default function useContract<T extends Contract = Contract>(
   address: string,
@@ -21,4 +24,11 @@ export default function useContract<T extends Contract = Contract>(
       return null;
     }
   }, [address, ABI, library, account]) as T;
+}
+export function useTokenContract(contractAddress?: string) {
+  return useContract<ERC20>(contractAddress, ERC20_ABI);
+}
+
+export function useTextTokenContract(contractAddress?: string) {
+  return useContract<TextToken>(contractAddress, textToken.abi);
 }

@@ -1,3 +1,31 @@
+## Getting Started
+
+First add dependecies:
+
+```bash
+yarn
+```
+
+Then run the development server:
+
+```bash
+yarn dev
+```
+
+set the name of the project in `package.json`
+
+# hardhat config
+
+to use hardhat 
+```bash
+npx hardhat clean
+npx hardhat compile
+npx hardhat node
+```
+
+# common error
+1. [Nonce too high](https://https://medium.com/@thelasthash/solved-nonce-too-high-error-with-metamask-and-hardhat-adc66f092cd): Go to **Settings**, then **Advanced** and hit **Reset Account**
+
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmirshko%2Fnext-web3-boilerplate)
 
 This is a default [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), customized as the default boilerplate for new Web3 projects.
