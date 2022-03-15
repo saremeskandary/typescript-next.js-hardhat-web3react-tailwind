@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "npx hardhat test",
+    "chain": "npx hardhat node",
+    "deploy": "npx hardhat run scripts/deploy.ts",
     "compile-contract-types": "typechain --target ethers-v5 --out-dir './contracts/types' './contracts/*.json'",
     "postinstall": "yarn compile-contract-types"
   },
@@ -22,6 +24,7 @@
     "@openzeppelin/contracts": "^4.5.0",
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
+    "hardhat-deploy": "^0.10.6",
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
