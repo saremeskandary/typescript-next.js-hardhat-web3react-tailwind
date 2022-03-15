@@ -17,7 +17,7 @@ export default function useSetText() {
       let a = async () => {
         const setTextTx = await contract.safeMint(text);
         await setTextTx.wait();
-        // setId(await contract.counter());
+        setId(await contract.counter());
       };
       a();
     }

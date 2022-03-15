@@ -8,6 +8,7 @@ import TokenBalance from "../components/TokenBalance";
 import useEagerConnect from "../hooks/useEagerConnect";
 import useGetText from "../hooks/useGetText";
 import useSetText from "../hooks/useSetText";
+import { parseBalance } from "../util";
 
 const DAI_TOKEN_ADDRESS = "0x6b175474e89094c44da98b954eedeac495271d0f";
 
@@ -38,16 +39,17 @@ function Home() {
           <section className="flex flex-col items-center content-center gap-8">
             <ETHBalance />
 
-            <TokenBalance tokenAddress={DAI_TOKEN_ADDRESS} symbol="DAI" />
+            {/* <TokenBalance tokenAddress={DAI_TOKEN_ADDRESS} symbol="DAI" /> */}
 
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 setClick(true);
               }}
-              className="flex flex-col items-center content-center gap-1"
+              className="flex flex-col items-center content-center gap-1 border-2 p-2"
             >
               <input
+                className="border-2 text-center"
                 type="text"
                 name="setId"
                 placeholder="set text"
@@ -57,7 +59,10 @@ function Home() {
                 }}
                 required
               />
-              <button type="submit">mint text</button>
+              <button className="border-2 rounded-xl px-4" type="submit">
+                mint text
+              </button>
+              <div>{id && parseBalance(id, 0, 0)}</div>
             </form>
 
             <form
@@ -65,9 +70,10 @@ function Home() {
                 e.preventDefault();
                 setClickGetText(true);
               }}
-              className="flex flex-col items-center content-center gap-1"
+              className="flex flex-col items-center content-center gap-1 border-2 p-2"
             >
               <input
+                className="border-2 text-center"
                 type="number"
                 name="setId"
                 placeholder="set id"
@@ -78,7 +84,9 @@ function Home() {
                 }}
                 required
               />
-              <button type="submit">getText</button>
+              <button className="border-2 rounded-xl px-4" type="submit">
+                getText
+              </button>
             </form>
             <p>{text}</p>
           </section>
