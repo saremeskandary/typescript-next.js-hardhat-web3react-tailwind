@@ -2,6 +2,7 @@ import { useWeb3React } from "@web3-react/core";
 import { BigNumber, BigNumberish } from "ethers";
 import Head from "next/head";
 import Link from "next/link";
+import ReactLoading from "react-loading";
 import Account from "../components/Account";
 import ETHBalance from "../components/ETHBalance";
 import TokenBalance from "../components/TokenBalance";
@@ -14,12 +15,22 @@ const DAI_TOKEN_ADDRESS = "0x6b175474e89094c44da98b954eedeac495271d0f";
 
 function Home() {
   const { account, library } = useWeb3React();
-  const { id, setClick, setText } = useSetText();
+  const { id, loading, setClick, setText } = useSetText();
   const { text, setClick: setClickGetText, setId } = useGetText();
 
   const triedToEagerConnect = useEagerConnect();
 
   const isConnected = typeof account === "string" && !!library;
+
+  function Id() {
+    if (loading) {
+      return (
+        <ReactLoading type={"spin"} color={"black"} height={30} width={30} />
+      );
+    } else if (id) {
+      return <div>id is {id && parseBalance(id, 0, 0)}</div>;
+    } else return <div></div>
+  }
 
   return (
     <div className="flex flex-col items-center content-center gap-4 h-96">
@@ -62,7 +73,7 @@ function Home() {
               <button className="border-2 rounded-xl px-4" type="submit">
                 mint text
               </button>
-              <div>{id && parseBalance(id, 0, 0)}</div>
+              <Id />
             </form>
 
             <form
